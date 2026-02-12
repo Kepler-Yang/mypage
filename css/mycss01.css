@@ -1,0 +1,27 @@
+:root {
+    /* 核心色：調低了藍色的亮度，增加專業感 */
+    --primary: #4A69BD;      /* 調整後的商務藍 */
+    --secondary: #F6B93B;    /* 活潑但不刺眼的黃，適合「了解更多」按鈕 */
+    --dark: #0A3D62;         /* 導覽列與標題的深藍 */
+    --gray: #95A5A6;         
+
+    /* 背景與容器 */
+    --bg-main: #F1F2F6;      /* 稍微加深底色，讓白色卡片浮現出來 */
+    --bg-card: #FFFFFF;      
+
+    /* 導覽列 */
+    --navi-bg: #0A3D62;      
+    --navi-font: #FFFFFF;    
+    --navi-hover: #D1D8E0;   /* 懸停時變淡灰色，文字變黑色 */
+
+    /* 文字色 */
+    --font-main: #2F3542;    
+    --font-light: #747D8C;   
+
+    /* 頁尾 */
+    --footer-bg: #2F3542;    
+    --footer-font: #CED6E0;  
+
+    /* 裝飾細節 */
+    --shadow-soft: rgba(0, 0, 0, 0.1); /* 柔和深色陰影，取代原本的白色陰影 */
+}

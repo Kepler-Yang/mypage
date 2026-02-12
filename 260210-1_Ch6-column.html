@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH6-欄與列</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss02.css">
+    <style>
+        .box01 {
+            font-size: 14px;
+            text-align: center;
+            /* 水平置中 (文字) */
+            display: flex;
+            /* 啟動 Flex 模式 */
+            justify-content: center;
+            /* Flex 水平置中 */
+            align-items: center;
+            /* Flex 垂直置中 (這取代了你的 vertical-align) */
+            height: 100px;
+            /* 務必給高度，不然看不出垂直置中的效果 */
+            margin-top: 10px;
+        }
+
+        .box02 {
+            font-size: 14px;
+            text-align: center;
+            /* 水平置中 (文字) */
+            display: flex;
+            /* 啟動 Flex 模式 */
+            justify-content: center;
+            /* Flex 水平置中 */
+            align-items: center;
+            /* Flex 垂直置中 (這取代了你的 vertical-align) */
+            height: 320px;
+            /* 務必給高度，不然看不出垂直置中的效果 */
+            margin-top: 10px;
+        }
+
+        .box03 {
+            height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="title-01 text-center"> 1. col-1 ~ col-12</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="box01 bg-primary"> col-12</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="box01 bg-secondary"> col-6</div>
+            </div>
+            <div class="col-6">
+                <div class="box01 bg-secondary"> col-6</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <div class="box01 bg-success">col-4</div>
+            </div>
+            <div class="col-4">
+                <div class="box01 bg-success">col-4</div>
+            </div>
+            <div class="col-4 ">
+                <div class="box01 bg-success">col-4</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-3">
+                <div class="box01 bg-danger">col-3</div>
+            </div>
+            <div class="col-3">
+                <div class="box01 bg-danger">col-3</div>
+            </div>
+            <div class="col-3">
+                <div class="box01 bg-danger">col-3</div>
+            </div>
+            <div class="col-3">
+                <div class="box01 bg-danger">col-3</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+            <div class="col-2">
+                <div class="box01 bg-warning">col-2</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+            <div class="col-1">
+                <div class="box01 bg-info">col-1</div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <div class="title-02 text-center"> 2. 網頁佈局示範(巢狀)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="box01 bg-success">col-3</div>
+            </div>
+            <div class="col-9">
+                <div class="box01 bg-primary">col-9</div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                <div class="box02 bg-secondary">col-3</div>
+            </div>
+            <div class="col-9">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                    <div class="col-3">
+                        <div class="box01 bg-warning">col-3</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="box01 bg-secondary">col-4</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="box01 bg-secondary">col-4</div>
+                    </div>
+                    <div class="col-4">
+                        <div class="box01 bg-secondary">col-4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <div class="title-03 text-center"> 3. RWD-sn,md,lg,xl,xxl</div>
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="p-4 bg-primary text-white text-center rounded">
+                    col-sm-12 col-md-6 col-lg-3
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="p-4 bg-success text-white text-center rounded">
+                    col-sm-12 col-md-6 col-lg-3
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="p-4 bg-warning text-dark text-center rounded">
+                    col-sm-12 col-md-6 col-lg-3
+                </div>
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3">
+                <div class="p-4 bg-danger text-white text-center rounded">
+                    col-sm-12 col-md-6 col-lg-3
+                </div>
+            </div>
+
+        </div>
+        <br><br><br>
+    </div>
+
+    <div class="title-04 text-center"> 4. offset(推格子)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-lg-3">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-lg-6">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 offset-lg-9">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <div class="title-05 text-center">5.gutter(欄與列的距離)</div>
+    <div class="container">
+        <div class="row gx-1 gy-5">
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+            <div class="col-3">
+                <div class="box03 bg-info"></div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+    <div class="title-01 text-center">6. row-cols-{中斷點}-{欄數}</div>
+    <div class="container">
+        <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xxl-6">
+
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+            <div class="col">
+                <div class="box01 bg-success"></div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <div class="title-02 text-center">7. 隱藏語顯示(d-none, d-block)</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-3 d-none d-md-block">
+                <div class="box01 bg-danger"></div>
+            </div>
+            <div class="col-3 d-none d-lg-block">
+                <div class="box01 bg-primary"></div>
+            </div>
+            <div class="col-3 d-none d-xl-block">
+                <div class="box01 bg-warning"></div>
+            </div>
+        </div>
+        <br><br><br>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.min.js"></script>
+</body>
+
+</html>

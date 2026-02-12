@@ -4,124 +4,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CH-6 美食地方列表</title>
+    <title>HTML練習作品集</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/mycss02.css">
     <style>
-        .roller {
-            position: relative;
-            overflow: hidden;
+        /* CSS效果 */
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url("https://picsum.photos/id/1025/1600/800") center/cover fixed;
         }
 
-        .roller .rollerbox01 {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4);
+        /* 讓卡片滑過時有微縮放感 */
+        .hover-lift {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
 
+        .hover-lift:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+        }
+
+        .card-img-overlay {
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
             display: flex;
-            /* 讓它變成 Flex 容器 */
-            justify-content: center;
-            /* 水平置中按鈕 */
-            align-items: center;
-            /* 垂直置中按鈕 */
-
-            left: -100%;
-            transition: left 1s ease-in-out;
-        }
-
-        .roller:hover .rollerbox01 {
-            left: 0;
-        }
-
-        .card-img-top {
-            height: 200px;
-            object-fit: cover;
-            /* 這樣圖片才不會變形 */
+            flex-direction: column;
+            justify-content: flex-end;
         }
     </style>
-
 </head>
 
 <body>
-    <div class="title-03 text-center">農村地方美食列表</div>
-    <br>
-    <div class="container">
-        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3 g-4" id="mycol">
+
+    <div class="hero-bg vh-100 d-flex align-items-center justify-content-center text-white text-center">
+        <div class="p-5 border border-light border-opacity-25 rounded-5" style="backdrop-filter: blur(10px);">
+            <h1 class="display-1 fw-black mb-0">楊阿立</h1>
+            <div class="bg-white my-3 mx-auto" style="height: 3px; width: 60px;"></div>
+            <h2 class="h4 fw-light ls-wider mb-4 text-uppercase">社會觀察家</h2>
+            <p class="lead italic">「科技始終來自人性，人性始終來自惰性」</p>
+        </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold">作品集</h2>
+            <p class="text-muted">我的學習歷程與練習專案</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+
             <div class="col">
-                <div class="card h-100 roller">
-                    <div class="rollerbox01">
-                        <div class="btn btn-success">See more</div>
-                    </div>
-                    <img src="images/950-600x400.jpg" class="card-img-top" alt="這是測試照片">
-                    <div class="card-body">
-                        <h4 class="card-title">這是店家名稱</h4>
-                        <p class="card-text">
-                        <h6>店家電話: 這是店家電話</h6>
-                        <h6>店家地址: 這是店家地址這是店家地址這是店家地址</h6>
-                        店家簡介:
-                        小區你說獲得保健如果您上帝，更是但是，和諧日報雲林一句話高興網路老師為您和平島照片付款招商智能美麗，每個種類保護下了科學找到關西魯蛇這時本科這就是多個觀眾她的，計劃以及看見推坑王，長時間你也三大，配。
-                        </p>
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/60/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Homepage 框架設計</h5>
+                        <p class="card-text small opacity-75">260127-3 CSS 練習</p>
+                        <a href="260127-3_CSS.html" class="stretched-link"></a>
                     </div>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/2/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">CSS 語法練習</h5>
+                        <p class="card-text small opacity-75">260129-1 練習</p>
+                        <a href="260129-1_homepage_RWD.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/92/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Bootstrap CH-1 基礎</h5>
+                        <p class="card-text small opacity-75">260203-1 練習</p>
+                        <a href="260203-1_CH1.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/110/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Bootstrap CH3&4 文字 圖片</h5>
+                        <p class="card-text small opacity-75">260203-2 上課筆記</p>
+                        <a href="260203-2_CH3.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/20/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Bootstrap CH5 表格</h5>
+                        <p class="card-text small opacity-75">260205-1 RWD演練</p>
+                        <a href="260205-1_CH5_tableV2.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/30/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Youbike 即時數據</h5>
+                        <p class="card-text small opacity-75">260205-3 Opendata演練</p>
+                        <a href="260205-3_Table-youbike.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/40/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">Bootstrap CH6 欄與列</h5>
+                        <p class="card-text small opacity-75">260210-1 上課筆記</p>
+                        <a href="260210-1_Ch6-column.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm hover-lift text-white overflow-hidden">
+                    <img src="https://picsum.photos/id/50/600/400" class="card-img" alt="...">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">農村地方美食列表</h5>
+                        <p class="card-text small opacity-75">260212-1 Opendata演練</p>
+                        <a href="260212-1.html" class="stretched-link"></a>
+                    </div>
+                </div>
+            </div>
+
+
+
         </div>
     </div>
-    </div>
+
+    <footer class="bg-dark text-white-50 py-4 text-center">
+        <div class="container">
+            <small>&copy; 2026 楊阿立個人作品集. 使用 Bootstrap 5 構建</small>
+        </div>
+    </footer>
 
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/jquery-4.0.0.min.js"></script>
-    <script>
-        // 主程式
-        $(function () {
-            //串接opendata
-            $.ajax({
-                type: "GET",
-                url: "js/json/TravelFood.json",
-                dataType: "JSON",
-                success: showdata,
-                error: function () {
-                    console.log("Error - js/json/TravelFood.json");
-                }
-            })
-        });
-        function showdata(data) {
-            // 1. 讓console讀取資料, 測試用
-            console.log(data);
-            // 2. 清空原本寫死在 HTML 裡的範例資料
-            $("#mycol").empty();
-            // 3. 遍歷資料
-            data.forEach(function (item) {
-                // 4. JSON無資料時的替代顯示
-                let img = item.PicURL ? item.PicURL : "images/950-600x400.jpg";
-                let tel = item.Tel ? item.Tel : "未提供電話";
-                let hword = item.HostWords ? item.HostWords : "未提供簡介";
-                // 如果 Url 為空，則 href 設為 javascript:void(0)
-                let webUrl = item.Url ? item.Url : "javascript:void(0)";
-
-                let strHTML = `
-                    <div class="col">
-                    <div class="card h-100 roller">
-                    <div class="rollerbox01">
-                    <a class="btn btn-primary" href="${webUrl}" role="button">店家官網</a>
-                    </div>
-                    <img src="${img}" class="card-img-top" alt="${item.Name}">
-                    <div class="card-body">
-                        <h4 class="card-title">${item.Name}</h4>
-                        <p class="card-text">
-                            <h6>店家電話: ${tel}</h6>
-                            <h6>店家地址: ${item.City}${item.Town}${item.Address}</h6>
-                            店家簡介: ${hword}<br>
-                        </p>
-                    </div>
-                    </div>
-                    </div>
-                 `;
-                $("#mycol").append(strHTML);
-            })
-        }
-
-    </script>
 </body>
 
 </html>

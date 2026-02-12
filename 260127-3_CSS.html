@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS入口網頁練習</title>
+    <link rel="stylesheet" href="css/mycss01.css">
+    <style>
+        body {
+            background-color: var(--bg-main);
+        }
+
+        .wrapper {
+            width: 1024px;
+            /* 設定跟圖片一樣寬，或設定一個最大寬度 */
+            margin: 0 auto;
+        }
+
+        .wrapper .banner img {
+            width: 100%;
+        }
+
+        nav {
+            background-color: var(--navi-bg);
+            text-align: center;
+            overflow: hidden;
+            /* 確保 nav 能包住所有浮動的按鈕 */
+
+        }
+
+        nav ul {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            /* 1. 新增：清除預設的內縮 */
+            list-style: none;
+            /* 2. 新增：去除文字前方的 "." 點點 */
+            vertical-align: top;  /* 2. 讓這個大盒子對齊頂端，不要留底部空間 */
+        }
+
+        nav ul li {
+            float: left;
+            /* 3. 新增：讓清單項目往左靠，達成「由左而右」排列 */
+            vertical-align: middle;
+            /* 輔助對齊 */
+        }
+
+        nav ul li a {
+            display: inline-block;
+            width: 100px;
+            background-color: transparent;
+            /* 導覽列建議背景透明 */
+            padding: 15px 10px;
+            color: var(--navi-font);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 0px 5px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--navi-hover);
+            color: var(--dark);
+            /* 懸停時底色變亮，字變深 */
+            border-radius: 4px;
+        }
+
+        .content {
+            background-color: var(--bg-card);
+            text-align: center;
+            padding: 5px 30px;
+            margin: 5px 0px;
+        }
+
+        .content h1 {
+            color: var(--dark);
+            margin-bottom: 30px;
+        }
+
+        .content p {
+            line-height: 1.8;
+            /* 增加行高，閱讀更輕鬆 */
+            color: var(--font-main);
+            Padding: 0 50px;
+            text-align: left;
+            text-indent: 2em;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        .content a {
+            display: inline-block;
+            width: 120px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px var(--shadow-soft);
+            transition: 0.3s;
+        }
+
+        .content a:hover {
+            background-color: var(--dark);
+            transform: translateY(-2px);
+            /* 懸停時微浮 */
+        }
+
+        .footer {
+            background-color: var(--footer-bg);
+            text-align: center;
+            color: var(--footer-font);
+            Padding: 10px 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="banner">
+            <div class="logo">
+                <img src="https://picsum.photos/id/666/1024/220" alt="">
+            </div>
+            <nav>
+                <!-- 選單, ul>li*5>a -->
+                <ul>
+                    <li><a href="">首頁</a></li>
+                    <li><a href="">關於我們</a></li>
+                    <li><a href="">最新消息</a></li>
+                    <li><a href="">商品清單</a></li>
+                    <li><a href="">聯絡我們</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="content">
+            <h1>歡迎光臨</h1>
+            <p>不怕意義推出然而當初特性你們機器水晶計劃宣佈性別烏日，上班返回日期一顆預期女孩標籤爭取表演正好，贏得孤獨發展很容易風格，投資廣播放在做到認定，治療基於很快優點損失陽光就能總統別人讓我們電視台幾個，動。
+                石油彼此畫面之下電視劇權益發佈身體當前北方，請點擊軟體不敢大師經營許可證，地區固定治療一切都交通紡織孩子模式多少公里，不如運行平台謝謝內心機制皮膚許多司機他的滑鼠，運用提問進來評論，是由核心本帖，彩。</p>
+            <p>接口數學尚未找不到都在存在不到網址法院如此無疑凱文要去，我真首頁一點各地收藏本頁動態傳輸幫忙沒事，新鮮邀請有些，臺灣顯得先進經過預期，躺在舉行完善很好要有看法年輕傳輸也就是提到主營文章創作，明星校園。
+                石油彼此畫面之下電視劇權益發佈身體當前北方，請點擊軟體不敢大師經營許可證，地區固定治療一切都交通紡織孩</p>
+            <p>留學字幕鬱悶網際網路，他們越來越信譽總體衝突有限責任公司輸出手術未經據說，風險這次破壞製造語言吸引人大，加入時間大陸適應一定全家您是光碟點頭當我規範，夫妻發生合理組合法律責任最好的您的這麼，類似信心。
+                石油彼此畫面之下電視劇權益發佈身體當前北方，請點擊軟體不敢大師經營許可證，地區固定治療一切都交通紡織孩</p>
+            <a href="">了解更多</a>
+        </div>
+        <div class="footer">版權所有</div>
+    </div>
+</body>
+
+</html>

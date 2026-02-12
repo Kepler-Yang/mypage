@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youbike列表 練習</title>
+    <link rel="stylesheet" href="css/mycss02.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* 1. 寬螢幕設定：限制備註欄位寬度 */
+        @media screen and (min-width: 769px) {
+
+            /* 針對不同欄位分配比例 */
+            .table th:nth-child(1) {
+                width: 120px;
+            }
+
+            .table th:nth-child(3),
+            .table th:nth-child(4),
+            .table th:nth-child(5) {
+                width: 100px;
+            }
+
+            /* 讓內容垂直置中提升美感 */
+            .table th {
+                vertical-align: middle;
+            }
+        }
+
+        /* 2. 窄螢幕 RWD 設定 */
+        @media screen AND (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 1px solid grey;
+                margin-top: 20px;
+            }
+
+            .table-rwd tbody tr td {
+                display: flex;
+                /* 改用 Flex 佈局 */
+                align-items: stretch;
+                /* 關鍵：讓左右兩邊高度強制同步撐滿 */
+                overflow: hidden;
+                border-bottom: 1px solid #eee;
+                padding: 0;
+                /* 移除內距，讓黑底碰到邊框 */
+            }
+
+            .table-rwd tbody tr td::before {
+                /* 標題部分 */
+                background-color: #212529;
+                color: #ffffff;
+                width: 30%;
+                /* 標題寬度 */
+                padding: 10px 5px;
+                /* 給予上下內距，讓文字不貼邊 */
+                display: flex;
+                /* 內部也用 flex 讓標題文字居中 */
+                align-items: center;
+                /* 垂直居中 */
+                justify-content: center;
+                /* 水平居中 */
+                flex-shrink: 0;
+                /* 防止標題被擠壓變窄 */
+                font-weight: bold;
+            }
+
+            .table-rwd tbody tr td span {
+                /* 內容部分 */
+                width: 70%;
+                padding: 10px 15px;
+                /* 與標題對齊的內距 */
+                display: block;
+                word-break: break-all;
+                /* 防止長文字溢出 */
+                line-height: 1.5;
+            }
+
+            .table-rwd tbody tr td:nth-of-type(1):before {
+                content: "站點代號";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(2):before {
+                content: "場站中文名稱";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(3):before {
+                content: "場站總停車格";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(4):before {
+                content: "場站目前車輛數量";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(5):before {
+                content: "空位數量";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(6):before {
+                content: "來源資料更新時間";
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="title-02 text-center" id="mytitle">標題列</div>
+        <table class="table table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>站點代號sno</th>
+                    <th>場站中文名稱sna</th>
+                    <th>場站總停車格</th>
+                    <th>場站目前車輛數量</th>
+                    <th>空位數量</th>
+                    <th>來源資料更新時間</th>
+                    <!-- https://data.taipei/dataset/detail?id=c6bc8aed-557d-41d5-bfb1-8da24f78f2fb -->
+                </tr>
+            </thead>
+
+            <!-- 定義mybody, 用jQuery讓tbody重複出現 -->
+            <tbody id="mybody">
+                <tr>
+                    <td><span>001</span></td>
+                    <td><span><img src="https://picsum.photos/id/8/150/150" alt=""></span></td>
+                    <td><span>Notebook</span></td>
+                    <td><span>40,000</span></td>
+                    <td><span>5</span></td>
+                    <td><span>原則溝通遊客熱門一顆暫無恐怖案例豐富，程度招聘取得運行，增長我們先後小區沒什麼，仍然頻道放在學院適用探索完全上去委員會人大，拍攝我市發生地上上述都在整個創建斗內，出台措施音樂保密教材都沒一下子熱線</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.min.js"></script>
+
+    <script>
+        $(function () {
+            $.ajax({
+                type: "GET",
+                url: "js/JSON/youbike_immediate.json",
+                dataType: "JSON",
+                success: showdata,
+                error: function () {
+                    console.log("抓取本地檔案失敗");
+                }
+            })
+        })
+        function showdata(data) {
+            console.log(data);
+
+            // 1. 清空原本寫死在 HTML 裡的範例資料
+            $("#mybody").empty();
+
+            // 2. 更新標題筆數 (選擇性加入)
+            $("#mytitle").html("YouBike2.0臺北市公共自行車即時資訊 (共 " + data.length + " 筆)");
+
+            // 3. 遍歷資料
+            data.forEach(function (item) {
+                let strHTML = `<tr>
+                    <td><span>${item.sno}</span></td>
+                    <td><span>${item.sna}</span></td>
+                    <td><span>${item.Quantity}</span></td>
+                    <td><span>${item.available_rent_bikes}</span></td>
+                    <td><span>${item.available_return_bikes}</span></td>
+                    <td><span>${item.infoTime}</span></td>
+                    </tr>`;
+                $("#mybody").append(strHTML);
+            })
+        }
+
+    </script>
+</body>
+
+</html>
+
+
+<!-- 1.抓出youbike資料 -->
+<!-- 2.自行列印出內容並了解含意 -->
+<!-- 3.使用table將重要資料列表 -->
+<!-- ex: 站點名稱, 可借車輛數, 已借出車輛數, 更新時間...等-->
+<!-- sno(站點代號)、sna(場站中文名稱)、quantity(場站總停車格)、available_rent_bikes(場站目前車輛數量)、sarea(場站區域)、mday(資料更新時間)、latitude(緯度)、longitude(經度)、ar(地點)、sareaen(場站區域英文)、snaen(場站名稱英文)、aren(地址英文)、available_return_bikes(空位數量)、act(全站禁用狀態)、srcUpdateTime(YouBike2.0系統發布資料更新的時間)、updateTime(大數據平台經過處理後將資料存入DB的時間)、infoTime(各場站來源資料更新時間)、infoDate(各場站來源資料更新時間) -->

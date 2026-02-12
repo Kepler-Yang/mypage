@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH5 表格</title>
+    <link rel="stylesheet" href="css/mycss02.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        /* 1. 寬螢幕設定：限制備註欄位寬度 */
+        @media screen and (min-width: 769px) {
+
+            .table th:nth-child(6),
+            .table td:nth-child(6) {
+                width: 40%;
+                /* 限制備註佔比，其餘分配給其他欄位 */
+                text-align: justify;
+                /* 讓長文字排版更整齊 */
+            }
+        }
+
+        /* 2. 窄螢幕 RWD 設定 */
+        @media screen AND (max-width: 768px) {
+            .table-rwd thead {
+                display: none;
+            }
+
+            .table-rwd tbody tr {
+                display: block;
+                border: 1px solid grey;
+                margin-top: 20px;
+            }
+
+            /* .table-rwd tbody tr td {
+                display: block;
+                overflow: hidden;
+            } */
+
+            .table-rwd tbody tr td {
+                display: flex;
+                /* 改用 Flex 佈局 */
+                align-items: stretch;
+                /* 關鍵：讓左右兩邊高度強制同步撐滿 */
+                overflow: hidden;
+                border-bottom: 1px solid #eee;
+                padding: 0;
+                /* 移除內距，讓黑底碰到邊框 */
+            }
+
+            /* .table-rwd tbody tr td::before {
+                color: blue;
+                display: block;
+                float: left;
+                width: 30%;
+                text-align: center;
+            } */
+
+
+            .table-rwd tbody tr td::before {
+                /* 標題部分 */
+                background-color: #212529;
+                color: #ffffff;
+                width: 30%;
+                /* 標題寬度 */
+                padding: 10px 5px;
+                /* 給予上下內距，讓文字不貼邊 */
+                display: flex;
+                /* 內部也用 flex 讓標題文字居中 */
+                align-items: center;
+                /* 垂直居中 */
+                justify-content: center;
+                /* 水平居中 */
+                flex-shrink: 0;
+                /* 防止標題被擠壓變窄 */
+                font-weight: bold;
+            }
+
+            /* .table-rwd tbody tr td span {
+                display: block;
+                float: left;
+                width: 70%;
+            } */
+
+            .table-rwd tbody tr td span {
+                /* 內容部分 */
+                width: 70%;
+                padding: 10px 15px;
+                /* 與標題對齊的內距 */
+                display: block;
+                word-break: break-all;
+                /* 防止長文字溢出 */
+                line-height: 1.5;
+            }
+
+            .table-rwd tbody tr td:nth-of-type(1):before {
+                content: "商品編號";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(2):before {
+                content: "商品照片";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(3):before {
+                content: "商品名稱";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(4):before {
+                content: "商品價格";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(5):before {
+                content: "商品數量";
+            }
+
+            .table-rwd tbody tr td:nth-of-type(6):before {
+                content: "商品備註";
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title-02 text-center">表格</div>
+        <table class="table table-rwd">
+            <thead class="table-dark">
+                <tr>
+                    <th>商品編號</th>
+                    <th>商品照片</th>
+                    <th>商品名稱</th>
+                    <th>商品價格</th>
+                    <th>商品數量</th>
+                    <th>商品備註</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span>001</span></td>
+                    <td><span><img src="https://picsum.photos/id/8/150/150" alt=""></span></td>
+                    <td><span>Notebook</span></td>
+                    <td><span>40,000</span></td>
+                    <td><span>5</span></td>
+                    <td><span>原則溝通遊客熱門一顆暫無恐怖案例豐富，程度招聘取得運行，增長我們先後小區沒什麼，仍然頻道放在學院適用探索完全上去委員會人大，拍攝我市發生地上上述都在整個創建斗內，出台措施音樂保密教材都沒一下子熱線
+                        </span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><span>002</span></td>
+                    <td><span><img src="https://picsum.photos/id/30/150/150" alt=""></span></td>
+                    <td><span>Mug</span></td>
+                    <td><span>100</span></td>
+                    <td><span>50</span></td>
+                    <td><span>東京及時級別那裡就是還要頓時文件哪個，手裡相關內容，於是右。</span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><span>003</span></td>
+                    <td><span><img src="https://picsum.photos/id/91/150/150" alt=""></span></td>
+                    <td><span>Antique camera</span></td>
+                    <td><span>100,000</span></td>
+                    <td><span>1</span></td>
+                    <td><span>訓練青春暫無正是線上經典，早上貸款站內搜尋檢驗這場病人範圍活動不再插入，通訊有效社區因此一本電視希望上了模型是在制度體育，陽明山依靠從事快樂，設定將會共有出現那就比例，更多討論區改造，根據等級則是範。
+                        </span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><span>004</span></td>
+                    <td><span><img src="https://picsum.photos/id/111/150/150" alt=""></span></td>
+                    <td><span>Vintage car</span></td>
+                    <td><span>2,000,000</span></td>
+                    <td><span>1</span></td>
+                    <td><span>本月體制躺在定位環保最初億元開發，指定授權遵守，房價提高探。
+                        </span></td>
+                </tr>
+            </tbody>
+            <tbody>
+                <tr>
+                    <td><span>005</span></td>
+                    <td><span><img src="https://picsum.photos/id/336/150/150" alt=""></span></td>
+                    <td><span>Lock</span></td>
+                    <td><span>100</span></td>
+                    <td><span>10</span></td>
+                    <td><span>本月體制躺在定位環保最初億元開發，指定授權遵守，房價提高探。
+                        </span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
