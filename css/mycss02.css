@@ -1,0 +1,182 @@
+/* import google font "Noto Sans, 並應用到body{}內" */
+@import url('https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Noto+Sans+TC:wght@100..900&display=swap');
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+/*文字相關*/
+.fw-100 {
+    font-weight: 100;
+}
+
+.fw-200 {
+    font-weight: 200;
+}
+
+.fw-300 {
+    font-weight: 300;
+}
+
+.fw-400 {
+    font-weight: 400;
+}
+
+.fw-500 {
+    font-weight: 500;
+}
+
+.fw-600 {
+    font-weight: 600;
+}
+
+.fw-700 {
+    font-weight: 700;
+}
+
+.fw-800 {
+    font-weight: 800;
+}
+
+.fw-900 {
+    font-weight: 900;
+}
+
+.font-chiron {
+    font-family: "Chiron GoRound TC", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.title-01 {
+    font-size: 48px;
+    font-weight: 400;
+    color: #fff;
+    /* 文字改為白色，發光效果更明顯 */
+    letter-spacing: 2px;
+    /* 加大字距增加高級感 */
+    text-shadow:
+        0 0 5px #007AFF,
+        0 0 10px #007AFF,
+        0 0 20px #007AFF,
+        0 0 40px #007AFF;
+    /* 多層陰影疊加出霓虹發光感 */
+}
+
+.title-02 {
+    font-size: 48px;
+    font-weight: 700;
+
+    /* 核心漸層代碼 */
+    background: linear-gradient(to right, orange, #ff4500);
+
+    /* 為了相容性與消除警告，兩者都寫 */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    /* 注意：標準寫法通常是用 color: transparent; 但 Webkit 仍偏好 fill-color */
+    color: transparent;
+}
+
+.title-03 {
+    font-size: 48px;
+    font-weight: 700;
+    color: seagreen;
+    
+    /* 修改這裡 */
+    display: table;        /* 改成 table 可以讓它具備塊狀屬性，寬度卻仍隨內容縮放 */
+    margin-left: auto;     /* 左右 margin auto 達成居中 */
+    margin-right: auto;
+    text-align: center;    /* 確保內部的文字也水平置中 */
+
+    transition: 0.3s;
+}
+
+.title-03:hover {
+    color: #2e8b57;
+    transform: translateY(-5px) scale(1.1);
+    text-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.title-04 {
+    font-size: 48px;
+    font-weight: 800;
+    /* 使用較粗的字重，增加色彩面積 */
+    color: #FFD700;
+    /* 金色 */
+
+    /* 運用外框效果與立體陰影提升對比度 */
+    text-shadow:
+        1px 1px 0px #CCAA00,
+        2px 2px 0px #AA8800,
+        3px 3px 5px rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.title-05 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #444;
+    /* 深灰色 */
+
+    /* 運用白色與深色陰影製造立體浮雕感 */
+    text-shadow:
+        1px 1px 1px #fff,
+        -1px -1px 1px #222;
+
+    opacity: 0.9;
+    background-color: transparent;
+}
+
+:root {
+    /* --- 1. 背景與容器 (Base Layers) --- */
+    --bg-main: #F4F7F9;
+    /* 全域背景：極淺冷灰色，比純白更有質感 */
+    --bg-banner: #FFFFFF;
+    /* Banner 背景：純白，讓首頁頂部看起來更通透 */
+    --bg-content: #FFFFFF;
+    /* 內文容器：純白卡片，增加浮現感 */
+    --bg-card: #EBF1F5;
+    /* 裝飾區塊：淺藍灰色，用於區分小功能塊 */
+
+    /* --- 2. 導覽列與按鈕 (Navi & Button) --- */
+    --nav-bg: #FFFFFF;
+    /* 導覽列底色：純白 */
+    --nav-btn-bg: #F0F4F8;
+    /* 導覽按鈕：淺霧藍色塊 */
+    --nav-btn-hover: #007AFF;
+    /* 導覽懸停：明亮蘋果藍 (iOS 風格) */
+    --nav-font: #4A5568;
+    /* 導覽文字：深石板灰，保持高對比度 */
+    --nav-font-hover: #FFFFFF;
+    /* 導覽文字懸停：純白 */
+
+    /* --- 3. 正文排版 (Content & Fonts) --- */
+    --font-h1: #1A202C;
+    /* 大標題：近乎黑的深灰，科技感十足 */
+    --font-main: #2D3748;
+    /* 正文文字：深碳灰，適合長久閱讀 */
+    --font-sub: #718096;
+    /* 次要文字：中灰藍，用於日期或路徑 */
+    --href-bg: #00D2D3;
+    /* 了解更多按鈕：明亮青綠色 (Cyan) */
+    --href-hover: #01A3A4;
+    /* 按鈕懸停：深青綠 */
+    --href-font: #FFFFFF;
+    /* 按鈕文字：純白 */
+
+    /* --- 4. 頁尾與狀態 (Footer & Decor) --- */
+    --footer-bg: #2D3748;
+    /* 頁尾背景：深色收尾，讓網頁有重心 */
+    --footer-font: #A0AEC0;
+    /* 頁尾文字：淺灰，低調精緻 */
+    --accent-glow: #BEE3F8;
+    /* 裝飾發光：極淡的藍色，用於微陰影 */
+    --border-line: #E2E8F0;
+    /* 分隔線：非常淡的灰色，不干擾視覺 */
+    --shadow-soft: rgba(0, 0, 0, 0.05);
+    /* 柔和陰影：極淡黑影，增加立體感 */
+}
