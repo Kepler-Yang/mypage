@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人類太空探索歷史與未來時間軸</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss02.css">
+    <style>
+        body {
+            background-color: #0b0d17; /* 太空深藍黑背景 */
+            color: #ffffff;
+            font-family: 'Segoe UI', "Microsoft JhengHei", sans-serif;
+            padding-bottom: 80px;
+        }
+
+        .h3 {
+            color: #0dcaf0; /* 科技青色 */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .year-label {
+            color: #adb5bd;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .pimg {
+            height: 300px; /* 略微拉高增加氣勢 */
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+            transition: transform 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pimg:hover {
+            transform: translateY(-5px);
+        }
+
+        .bg-cover {
+            background-position: center center;
+            background-size: cover;
+        }
+
+        /* 調整時間軸中線與圓點配色 */
+        @media screen and (min-width: 768px) {
+            .timeline-section {
+                position: relative;
+                padding: 40px 0;
+            }
+
+            .timeline-section::before {
+                position: absolute;
+                content: "";
+                top: 0;
+                bottom: 0;
+                width: 3px;
+                background: linear-gradient(180deg, transparent, #0dcaf0, #007bff, transparent);
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .timeline-section-pointer {
+                position: relative;
+                margin-bottom: 100px;
+            }
+
+            .timeline-section-pointer::before {
+                position: absolute;
+                content: "";
+                width: 20px;
+                height: 20px;
+                background-color: #0b0d17;
+                border-radius: 50%;
+                border: 4px solid #0dcaf0; /* 改為與標題同色 */
+                top: 10px;
+                left: 50%;
+                z-index: 5;
+                transform: translateX(-50%);
+            }
+        }
+
+        .content-box {
+            padding: 20px 40px;
+        }
+
+        .btn-more {
+            margin-top: 15px;
+            border-radius: 20px;
+            transition: all 0.3s;
+        }
+
+        .btn-more:hover {
+            background-color: #0dcaf0;
+            color: #000;
+            box-shadow: 0 0 15px rgba(13, 202, 240, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container py-5">
+        <h1 class="text-center mb-5 fw-bold text-uppercase" style="letter-spacing: 3px;">Space Exploration <span class="text-info">Timeline</span></h1>
+        
+        <div class="timeline-section">
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/Space-Timeline-1.png);"></div>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="content-box">
+                        <div class="year-label">B.C. 3000 – 16TH Century</div>
+                        <div class="h3">肉眼觀測與曆法起源</div>
+                        <p class="text-secondary">人類藉由裸眼紀錄星辰，建立農業曆法與神學體系，地心說為此階段核心宇宙觀。</p>
+                        <a href="https://zh.wikipedia.org/wiki/%E5%A4%A9%E6%96%87%E5%AD%B8%E5%8F%B2" class="btn btn-outline-info btn-sm btn-more px-4">知道更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-md-row-reverse timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/Space-Timeline-2.png);"></div>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="content-box">
+                        <div class="year-label">1609 – 19TH Century</div>
+                        <div class="h3">光學革命與物理天文</div>
+                        <p class="text-secondary">望遠鏡的發明證實日心說，牛頓力學定義了天體運行規律，天文學正式轉型為物理科學。</p>
+                        <a href="https://zh.wikipedia.org/wiki/%E6%97%A5%E5%BF%83%E8%AF%B4" class="btn btn-outline-info btn-sm btn-more px-4">知道更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/Space-Timeline-3.png);"></div>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="content-box">
+                        <div class="year-label">1957 – 1990S</div>
+                        <div class="h3">冷戰對峙與登月突破</div>
+                        <p class="text-secondary">大國競爭驅動火箭技術，人類實現首度繞地與登月，建立現代航太技術的物理邊界。</p>
+                        <a href="https://zh.wikipedia.org/wiki/太空競賽" class="btn btn-outline-info btn-sm btn-more px-4">知道更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center flex-md-row-reverse timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/Space-Timeline-4.png);"></div>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="content-box">
+                        <div class="year-label">2000 – Present</div>
+                        <div class="h3">商業航太與低軌經濟</div>
+                        <p class="text-secondary">私人企業大幅降低發射成本，衛星通訊與太空旅遊興起，太空資源開始納入全球供應鏈。</p>
+                        <a href="https://zh.wikipedia.org/wiki/%E5%95%86%E4%B8%9A%E8%88%AA%E5%A4%A9" class="btn btn-outline-info btn-sm btn-more px-4">知道更多</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row align-items-center timeline-section-pointer">
+                <div class="col-md-6">
+                    <div class="pimg bg-cover" style="background-image: url(images/Space-Timeline-5.png);"></div>
+                </div>
+                <div class="col-md-6 text-center text-md-start">
+                    <div class="content-box">
+                        <div class="year-label">2050 – Future</div>
+                        <div class="h3">多行星文明與深空定居</div>
+                        <p class="text-secondary">建立月球與火星永久基地，人類實現資源原位利用，正式由單一行星物種轉化為多行星文明。</p>
+                        <a href="https://zh.wikipedia.org/wiki/%E5%A4%AA%E7%A9%BA%E7%A7%BB%E6%B0%91" class="btn btn-outline-info btn-sm btn-more px-4">知道更多</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

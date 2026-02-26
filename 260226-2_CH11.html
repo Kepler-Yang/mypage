@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH-11 表單</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mycss02.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display-3 p-3 my-4 fw-900">ch11 表單相關應用</div>
+
+        <div class="h2 py-3 fw-900 text-secondary">1.表單格式(Form)</div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <form id="myForm">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" id="user01" placeholder="字數限制 1~6個字" required>
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" id="pwd01" placeholder="字數限制 2~8個字">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">不符合規定</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email01" placeholder="不可為空, 字數30個字">
+                        <div class="valid-feedback">輸入符合規定</div>
+                        <div class="invalid-feedback">不符合規定</div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">送出</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="h2 py-3 fw-900 text-secondary">2.表單格式(不使用form)</div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="mb-3">
+                    <label for="" class="form-label">帳號</label>
+                    <input type="text" name="" id="user02" class="form-control" placeholder="字數限制 1~6個字" required>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">密碼</label>
+                    <input type="password" name="" id="pwd02" class="form-control" placeholder="字數限制 2~8個字">
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Email</label>
+                    <input type="email" name="" id="email02" class="form-control" placeholder="不可為空, 字數30個字">
+                </div>
+                <button type="button" class="btn btn-primary" id="btn02">送出</button>
+            </div>
+        </div>
+
+        <div class="h2 py-3 fw-900 text-secondary">3.Select</div>
+        <div class="row mb-5">
+            <div class="col-12">
+                <select name="" id="city01" class="form-select">
+                    <option value="" class="text-center">**請選擇縣市**</option>
+                    <option value="台北市">台北市</option>
+                    <option value="台中市">台中市</option>
+                    <option value="高雄市">高雄市</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="h2 py-3 fw-900 text-secondary">4.菜單選項練習 Select</div>
+        <div class="row  mb-5">
+            <div class="col-12">
+                <select name="" class="form-select" id="myfood">
+                    <option value="預設">**請選餐點**</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="h2 py-3 fw-900 text-secondary">5.Range</div>
+        <div class="row mb-5">
+            <div class="col-6">
+                <label for="score" class="form-label">分數: <span class="text-success h3"
+                        id="score_text">999</span></label>
+                <input type="range" name="" id="score" class="form-range" min="0" max="1000" step="10" value="100">
+            </div>
+
+        </div>
+
+
+    </div>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script>
+        //公有變數
+        let flag_user01 = false;
+        let flag_pwd01 = false;
+        let flag_email01 = false;
+        let flag_user02 = false;
+        let flag_pwd02 = false;
+        let flag_email02 = false;
+
+        const foodData = [
+            { name: "經典牛肉麵", price: 180, description: "嚴選本土黃牛肉，湯頭醇厚、麵條Ｑ彈。" },
+            { name: "招牌小籠包", price: 210, description: "皮薄多汁，每一口都是精華。" },
+            { name: "古法滷肉飯", price: 45, description: "肥而不膩的滷汁配上精選白米。" },
+            { name: "陽春麵", price: 60, description: "簡單的美味，台北街頭的家鄉味。" },
+            { name: "士林大香腸", price: 80, description: "超大份量，炭火直烤香氣四溢。" },
+            { name: "蚵仔煎", price: 75, description: "新鮮蚵仔配上酥脆粉漿與獨門醬汁。" },
+            { name: "傳統太陽餅", price: 50, description: "層層酥皮包裹麥芽甜心，台中必買伴手禮。" },
+            { name: "脆皮肉圓", price: 65, description: "外皮炸至微脆，內餡豬肉鮮甜彈牙。" },
+            { name: "清爽麻薏湯", price: 40, description: "台中夏季限定特產，帶點微苦後的甘甜。" },
+            { name: "大甲芋頭冰", price: 85, description: "選用在地大甲芋頭，綿密濃郁。" },
+            { name: "逢甲鹽酥雞", price: 100, description: "夜市首選，特製中藥粉香氣逼人。" },
+            { name: "古早味麵湯", price: 55, description: "台式傳統煮法，濃厚大骨湯底。" },
+            { name: "台中大麵羹", price: 45, description: "獨特的粗麵條與特有鹼味，台中人才懂的味道。" },
+            { name: "南部肉燥飯", price: 40, description: "南部偏甜的滷汁風味，滿滿焦糖香。" },
+            { name: "旗魚羹湯", price: 60, description: "新鮮旗魚漿特製，南部芡汁清甜感。" },
+            { name: "西子灣海鮮派對", price: 350, description: "各式現撈海鮮大匯集，享受港都氣息。" },
+            { name: "丹丹漢堡餐", price: 99, description: "南部傳奇速食，麵線羹配漢堡的奇幻組合。" },
+            { name: "港都大碗冰", price: 120, description: "超大份量海之冰，適合多人分享。" },
+            { name: "岡山羊肉爐", price: 450, description: "在地特產羊肉，藥膳湯底滋補養身。" },
+            { name: "左營餛飩湯", price: 70, description: "薄皮大餡，傳統眷村必吃美味。" }
+        ];
+
+
+
+        //主程式
+        $(function () {
+            // 1. Form 提交監聽
+            $("#myForm").submit(function (e) {
+
+                if (flag_user01 == true && flag_pwd01 == true && flag_email01 == true) {
+                    e.preventDefault();
+                    console.log("Form觸發!");
+                    console.log($("#user01").val());
+                    console.log($("#pwd01").val());
+                    console.log($("#email01").val());
+                }
+                else {
+                    e.preventDefault();
+                    alert("請輸入完整資料!");
+                }
+
+            });
+
+            // // 2. 帳號 Keyup 監聽
+            // $("#user01").keyup(function () {
+            //     console.log($("#user01").val());
+            // });
+
+
+            // 3. 帳號 Blur 限制字數與驗證 (字數 1-6 字)
+            $("#user01").blur(function () {
+                let len = $(this).val().length;
+                console.log("帳號字數：" + len);
+
+                if (len > 0 && len <= 6) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_user01 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_user01 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_user01 = false;
+                }
+            });
+
+
+
+            // 4. 密碼 Blur 限制字數與驗證 (字數 2-8 字)
+            $("#pwd01").blur(function () {
+                let len = $(this).val().length;
+                console.log("密碼字數：" + len);
+
+                if (len > 1 && len <= 8) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pwd01 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_pwd01 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pwd01 = false;
+                }
+            });
+
+            // 5. Email Blur 限制字數與驗證 (上限 30 字)
+            $("#email01").blur(function () {
+                let len = $(this).val().length;
+                console.log("Email字數：" + len);
+
+                // 定義 Email 格式的 Regex
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // 條件：長度大於0、小於等於30，"且" 符合正則表達式格式
+                if (len > 0 && len <= 30 && emailRegex.test($(this).val())) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_email01 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_email01 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_email01 = false;
+                }
+            });
+
+
+            // btn按鈕監聽
+            $("#btn02").click(function (e) {
+                if (flag_user02 && flag_pwd02 && flag_email02) {
+                    e.preventDefault();
+                    console.log("btn按鈕監聽觸發");
+                    console.log($("#user02").val());
+                    console.log($("#pwd02").val());
+                    console.log($("#email02").val());
+                }
+                else {
+                    e.preventDefault();
+                    alert("請輸入完整資料!");
+                }
+            });
+
+            // 3. 帳號 Blur 限制字數與驗證 (字數 1-6 字)
+            $("#user02").blur(function () {
+                let len = $(this).val().length;
+                console.log("帳號字數：" + len);
+
+                if (len > 0 && len <= 6) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_user02 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_user02 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_user02 = false;
+                }
+            });
+
+            // 4. 密碼 Blur 限制字數與驗證 (字數 2-8 字)
+            $("#pwd02").blur(function () {
+                let len = $(this).val().length;
+                console.log("密碼字數：" + len);
+
+                if (len > 1 && len <= 8) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_pwd02 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_pwd02 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_pwd02 = false;
+                }
+            });
+
+            // 5. Email Blur 限制字數與驗證 (上限 30 字)
+            $("#email02").blur(function () {
+                let len = $(this).val().length;
+                console.log("Email字數：" + len);
+
+                // 定義 Email 格式的 Regex
+                let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                // 條件：長度大於0、小於等於30，"且" 符合正則表達式格式
+                if (len > 0 && len <= 30 && emailRegex.test($(this).val())) {
+                    $(this).removeClass("is-invalid").addClass("is-valid");
+                    flag_email02 = true;
+                } else if (len == 0) {
+                    $(this).removeClass("is-valid").removeClass("is-invalid");
+                    flag_email02 = false;
+                } else {
+                    $(this).removeClass("is-valid").addClass("is-invalid");
+                    flag_email02 = false;
+                }
+            });
+
+
+            // 6. Select 改變監聽
+            $("#city01").change(function () {
+                console.log($(this).val());
+            });
+
+
+            // 7.渲染餐點選單
+            $("#myfood").empty();
+            $("#myfood").append('<option value="" class="text-center">**請選餐點**</option>');
+
+            foodData.forEach(function (item) {
+                $("#myfood").append(
+                    `<option value="${item.name}" class="text-center">${item.name}</option>`
+                );
+            });
+
+            // 8.Select 改變監聽
+            $("#myfood").change(function () {
+                console.log($(this).val());
+            });
+
+
+            //9.Range 會用on來監聽
+            $("#score").on("input", function () {
+                console.log($(this).val());
+
+                $("#score_text").text($(this).val());
+                // 將滑桿目前的數值, 用text()存到score_text中
+            });
+
+
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
